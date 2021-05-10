@@ -12,13 +12,19 @@ Hlavní cíl práce je detekce botů, kteří navštěvují webovou stránku za 
 
 
 **Univerzita:** Vysoké učení technické v Brně
+
 **Fakulta:** Fakulta informačních technologií
+
 **Ústav:** ÚITS (Ústav inteligentních systémů)
+
 **Kategorie:** Bezpečnost
+
 **Rok vypracování práce:** 2020/2021
 
 **Autor práce:** Radim Zítka, xzitka07@stud.fit.vutbr.cz
+
 **Vedoucí:**    Ing. Filip Januš, ijanus@fit.vutbr.cz
+
 **Oponent:** Mgr. Kamil Malinka, Ph.D.
 
 **Zadání:**

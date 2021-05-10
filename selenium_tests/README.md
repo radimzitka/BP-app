@@ -31,4 +31,9 @@ Jednotlivé testy mohou být upravovány přímo v kódu a záleží na uživate
 ---
 
 ## Testování funkcí navrhovaného aplikačního firewallu
-Ve složce `selenium_tests` je implementace testů, které ověřují, zda aplikační firewall sítě Socnet dokáže odhalit automatického bota pomocí implementovaných funkcí. Smysl jednotlivých testů obsahuje sekci 7.4 v souboru [text.pdf][text]. Princip a spuštění testujících skriptů je stejný jako v předchozí sekci, ale je třeba mít spuštěný server, na kterém běží síť Socnet. Spuštění tohoto serveru je v [tomto README][text].
+Ve složce `selenium_tests` je implementace testů, které ověřují, zda aplikační firewall sítě Socnet dokáže odhalit automatického bota pomocí implementovaných funkcí. Smysl jednotlivých testů obsahuje sekci 7.4 v souboru [text.pdf][text]. Princip a spuštění testujících skriptů je stejný jako v předchozí sekci, ale je třeba mít spuštěný server, na kterém běží síť Socnet. Popis spuštění tohoto serveru je v [tomto README][text]. Jednotlivé testy jsou:
+
+- Test počtu neúspěšných přihlášení (skript `bad_password.py`)
+- Test počtu úspěšných přihlášení (skript `successfull_login.py`)
+- Testování nesprávné hodnoty `User-Agent` (skript `bad_user_agent.py`)
+- Test chování uživatele na sociální síti (skript `identic_behave.py`)

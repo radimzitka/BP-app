@@ -1,0 +1,10 @@
+{
+    "rabbitmq": {
+        "host": "",
+        "port": 5672,
+        "user": "",
+        "password": "",
+        "vhost": "",
+        "queue": ""
+    }
+}

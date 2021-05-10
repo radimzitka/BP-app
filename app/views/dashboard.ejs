@@ -1,0 +1,294 @@
+<script>
+
+window.onload = function() {
+  document.getElementById('comments1').style.display = 'none';
+  document.getElementById('comments2').style.display = 'none';
+};
+
+document.onclick= function(event) {
+    // Compensate for IE<9's non-standard event model
+    //
+    if (event===undefined){
+      event= window.event;
+    } 
+    var target= 'target' in event? event.target : event.srcElement;
+
+    var element_id = target.id;
+    if(element_id === ""){
+      element_id = target.className;
+    }
+    if(element_id === ""){
+      element_id = target.tagName;
+    }
+
+    var data = {
+      "action":"click",
+      "element_id":element_id,
+    };
+
+    post(data);
+};
+
+function post(data){
+  var xhr = new XMLHttpRequest();
+    // alert('clicked on '+target.tagName+' '+target.id);
+    xhr.open("POST", "log", true);
+    xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.send(JSON.stringify(data));
+}
+
+function showComments(comments, btn) {
+  // hide the lorem ipsum text
+  var x = document.getElementById(comments);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    btn.style.fontWeight = "bold";
+    window.scrollBy({
+      top: 200,
+      left: 0,
+      behavior : "smooth"
+    });
+  } else {
+    btn.style.fontWeight = "normal";
+    x.style.display = "none";
+    window.scrollBy({
+      top: -200,
+      left: 0,
+      behavior : "smooth"
+    });
+  }
+}
+
+function likePost(btn) {
+  var x = document.getElementById(btn);
+  if (btn.style.fontWeight === "bold") {
+    btn.style.fontWeight = "normal";
+  } else {
+    btn.style.fontWeight = "bold";
+  }
+}
+</script>
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<%- include ('includes/head.ejs') %>
+<body>
+  <div class="page-head"> 
+    <div class="container">
+      <div class="row">
+          <div class="page-head-content">
+            <ul class="pager">
+                <li><h1 class="page-title"><%= username %></h1></li>
+                <li class="next"><a href="/logout" id="logout">Odhlásit se →<i class=""></i> </a></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="content-area blog-page padding-top-40" style="background-color: #FCFCFC; padding-bottom: 55px;">
+      <div class="container">
+        <!-- COMMENT 1 -->
+        <div class="row">
+          <div class="blog-lst col-md-12 pl0 comment-background">
+            <section id="id-100" class="post single">
+              <div class="post-header single">
+                <div class="col-sm-3 col-md-2 text-center-xs">
+                  <p>
+                    <img src="assets/img/client-face1.png" class="img-responsive img-circle" alt="">
+                  </p>
+                </div>
+              </div>
+              <div class="row wow fadeInRight animated">
+                <div class="col-sm-9">
+                  <h2 class="wow fadeInLeft animated">Kvantitativní uvolňování</h2>
+                  <p class="author-category">
+                    <a href="#">Lukáš Kovanda</a>
+                  </p>
+                  <p class="date-comments">
+                    <a href="single.html"><i class="fa fa-calendar-o"></i> 21. března 2021</a>
+                  </p>
+                </div>
+              </div>
+              <div class="post-body single wow fadeInLeft animated">
+                <p id="post-content1">
+                  Kvantitativní uvolňování ničí trh. Před rokem si Řecko půjčovalo na deset
+                  let i za více než 4 %. Pak začala jeho dluh vykupovat Evropská centrální banka, ač podle vlastních pravidel neměla.
+                  A hle, řecká vláda si teď i s dluhem 200 % HDP půjčuje o více než polovinu levněji než ČR.
+                </p>
+              </div>
+              <div class="col-sm-3 col-md-2 text-center-xs">
+                <a id="link_like1" onclick="likePost(this); return false;"><i class="fa fa-thumbs-up"></i>To se mi líbí</a></li>
+              </div>
+              <div class="col-sm-3 col-md-2 text-center-xs">
+                <a id="link_comments1" onclick="showComments('comments1', this); return false;"><i class="fa fa-comment-o"></i> 2 Komentáře</a>
+              </div>
+            </section> 
+
+            <section id="comments1" class="comments wow fadeInRight animated comments-padding"> 
+              <div class="row comment">
+                <div class="col-sm-3 col-md-2 text-center-xs">
+                  <p>
+                    <img src="assets/img/client-face1.png" class="img-responsive img-circle" alt="">
+                  </p>
+                </div>
+                <div class="col-sm-9 col-md-10">
+                  <h5 class="text-uppercase">Jan Švábík</h5>
+                  <p class="posted"><i class="fa fa-clock-o"></i> 22. března 2021, 21:58</p>
+                  <p>Já si myslím, že je nejlepší se odstěhovat z Česka. Já bych zrušil stát, lidé by si určitě
+                    nějak poradili.
+                  </p>
+                </div>
+              </div>
+              <div class="row comment last">
+                <div class="col-sm-3 col-md-2 text-center-xs">
+                  <p>
+                      <img src="assets/img/client-face2.png" class="img-responsive img-circle" alt="">
+                  </p>
+                </div>
+                <div class="col-sm-9 col-md-10">
+                  <h5 class="text-uppercase">Vojtěch Dvořák</h5>
+                  <p class="posted"><i class="fa fa-clock-o"></i> 23. března 2021, 7:28</p>
+                  <p>Ano, to je pravda. Že by investoři do českých vládních dluhopisů 
+                    přestali věřit Česku?
+                  </p>
+                </div>
+              </div>
+                      
+              <section id="comment-form" class="add-comments">
+                <form>
+                  <div class="row wow fadeInLeft animated">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <textarea class="form-control" id="comment" rows="4" placeholder="Můj komentář..."></textarea>
+                      </div>
+                    </div>
+                  </div>       
+                  <div class="row wow fadeInLeft animated">
+                    <div class="col-sm-12 text-right">
+                      <button class="btn btn-primary"><i class="fa fa-comment-o"></i>Komentovat</button>
+                    </div>
+                  </div>
+                </form>
+              </section>
+            </section>
+          </div>
+        </div>                       
+        <!-- END of COMMENT 1  -->
+
+        <!-- COMMENT 2 -->
+        <div class="row">
+          <div class="blog-lst col-md-12 pl0 comment-background">
+            <section id="id-100" class="post single">
+              <div class="post-header single">
+                <div class="col-sm-3 col-md-2 text-center-xs">
+                  <p>
+                    <img src="assets/img/client-face1.png" class="img-responsive img-circle" alt="">
+                  </p>
+                </div>
+              </div>
+              <div class="row wow fadeInRight animated">
+                <div class="col-sm-9">
+                  <h2 class="wow fadeInLeft animated">Inflace přichází</h2>
+                  <p class="author-category">
+                    <a href="#">Lukáš Kovanda</a>
+                  </p>
+                  <p class="date-comments">
+                    <a href="single.html"><i class="fa fa-calendar-o"></i> 19. března 2021</a>
+                  </p>
+                </div>
+              </div>
+              <div id="post-content" class="post-body single wow fadeInLeft animated">
+                <p id="post-content2">
+                  Světové ceny potravin po letech letí vzhůru. Jde o další inflační tlak,
+                    s nímž je třeba počítat i v ČR. Klíčovým důvodem zdražování jsou nízké úroky centrálních bank
+                    a spjatá rostoucí obava z inflace;
+                    roste spekulační poptávka po zemědělských surovinách coby ochraně před inflací.
+                </p>
+              </div>
+              <div class="col-sm-3 col-md-2 text-center-xs">
+                <a id="link_like2" onclick="likePost(this); return false;"><i class="fa fa-thumbs-up"></i>To se mi líbí</a></li>
+              </div>
+              <div class="col-sm-3 col-md-2 text-center-xs">
+                <a id="link_comments2" onclick="showComments('comments2', this); return false;"><i class="fa fa-comment-o"></i> 3 Komentáře</a>
+              </div>
+            </section> 
+
+            <section id="comments2" class="comments wow fadeInRight animated comments-padding"> 
+              <div class="row comment">
+                <div class="col-sm-3 col-md-2 text-center-xs">
+                  <p>
+                    <img src="assets/img/client-face1.png" class="img-responsive img-circle" alt="">
+                  </p>
+                </div>
+                <div class="col-sm-9 col-md-10">
+                  <h5 class="text-uppercase">Radim Zítka</h5>
+                  <p class="posted"><i class="fa fa-clock-o"></i> 20. března 2021, 9:45</p>
+                  <p>To se dalo očekávat. Škoda jen, že toto zdražování je dáno spekulací na inflaci.
+                    Je to takový paradox dnešní doby, ale na to už jsme si asi zvykli.
+                  </p>
+                </div>
+              </div>
+              <div class="row comment">
+                <div class="col-sm-3 col-md-2 text-center-xs">
+                  <p>
+                    <img src="assets/img/client-face1.png" class="img-responsive img-circle" alt="">
+                  </p>
+                </div>
+                <div class="col-sm-9 col-md-10">
+                  <h5 class="text-uppercase">Jan Švábík</h5>
+                  <p class="posted"><i class="fa fa-clock-o"></i> 20. března 2021, 9:45</p>
+                  <p>No, ona asi jiná možnost není. Je to jediný způsob, jak splatit státní dluh. 
+                    Holt, někde se ta nově vytvořená měna musí projevit.
+                  </p>
+                </div>
+              </div>
+              <div class="row comment last">
+                <div class="col-sm-3 col-md-2 text-center-xs">
+                  <p>
+                      <img src="assets/img/client-face2.png" class="img-responsive img-circle" alt="">
+                  </p>
+                </div>
+                <div class="col-sm-9 col-md-10">
+                  <h5 class="text-uppercase">Vojtěch Dvořák</h5>
+                  <p class="posted"><i class="fa fa-clock-o"></i> 20. března 2021, 17:35</p>
+                  <p>Furt se něco zdražuje. Nejlepší by bylo přestat jíst úplně.
+                  </p>
+                </div>
+              </div>
+                      
+              <section id="comment-form" class="add-comments">
+                <form>
+                  <div class="row wow fadeInLeft animated">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <textarea class="form-control" id="comment" rows="4" placeholder="Můj komentář..."></textarea>
+                      </div>
+                    </div>
+                  </div>       
+                  <div class="row wow fadeInLeft animated">
+                    <div class="col-sm-12 text-right">
+                      <button class="btn btn-primary"><i class="fa fa-comment-o"></i>Komentovat</button>
+                    </div>
+                  </div>
+                </form>
+              </section>
+            </section>
+            <!-- END of COMMENT 1  -->
+            
+          </div>
+        </div>       
+      </div>
+    </div>
+  </div>  
+   
+
+  <%- include ('includes/footer.ejs') %>
+
+</body>
+
+</html>

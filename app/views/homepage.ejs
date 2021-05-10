@@ -1,0 +1,80 @@
+
+  <script type="text/javascript">
+    function validateForm() {
+      var a = document.forms["LoginForm"]["name"].value;
+      var b = document.forms["LoginForm"]["password"].value;
+      if (a == null || a == "", b == null || b == "") {
+        alert("Vyplňte prosím uživatelské jméno a heslo");
+        return false;
+      }
+    }
+
+    var interval = setInterval(function(){
+      currentnumber = document.getElementById('secondsLeft');
+      var value = parseInt(currentnumber.innerHTML) - 1;
+      document.getElementById('secondsLeft').innerHTML = value;
+      if(value === 0){
+        clearInterval(interval);
+        document.getElementById("seconds").style.visibility = "hidden";
+      }
+    }, 1000);
+
+
+    
+  </script>
+  <!DOCTYPE html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <%- include('includes/head') %>
+  <body>
+    <div id="preloader">
+      <div id="status">&nbsp;</div>
+    </div>
+    <!-- Body content -->
+    <div class="slider-area">
+      <div class="item"><img src="assets/img/slide1/background-homepage.jpg">
+      </div>
+      <div class="slider-content">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-4 col-sm-12">
+            <div class="search-form wow pulse" data-wow-delay="0.8s">
+
+            <% if(data == "BadPassword"){ %>
+              <h2>Špatné heslo<h2>
+            <%} else if(data === "TooManyLogins") { %>
+              <h2>Příliš mnoho úspěšných přihlášení</h2>
+              <p id="seconds">Další přihlášení bude možné za <span id="secondsLeft"><%- nextLogin %></span> sekund.</p>
+            <%} else if(data === "SuspiciousTraffic") { %>
+              <h2>Detekováno podezřelé (automatické) chování</h2>
+              <p id="seconds">Další přihlášení bude možné za <span id="secondsLeft"><%- nextLogin %></span> sekund.</p>
+            <%} else if(data === "BadUserAgent") { %>
+              <h2>Zachycen podezřelý provoz</h2>
+            <%} else if(data === "UserNotFound") { %>
+              <h2>Uživatel neexistuje</h2>
+            <%} else if(data === "TooManyAttempts") { %>
+              <h2>Příliš mnoho pokusů o přihlášení</h2>
+              <p id="seconds">IP adresa <%- blockedIPaddr %> blokována na <span id="secondsLeft"><%- nextLogin %></span> sekund.</p>
+            <% } else { %>
+              <h2>Přihlaste se prosím</h2>
+            <% } %>
+              <form action="login" class="form-inline" method="post" onsubmit="return validateForm()" name="LoginForm">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Login" name="username">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Heslo" name="password">
+                </div>
+                <div class="form-group">
+                  <button class="nav-button wow bounceInRight login"  data-wow-delay="0.45s">Přihlásit se</button>
+                </div>           
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%- include ('includes/footer.ejs') %>
+  </body>
+</html>

@@ -11,8 +11,8 @@ class Page:
     def __init__(self, username, password):
         options = webdriver.ChromeOptions()
         options.add_argument('--window-size=1920,1080')
-        #options.add_argument('--headless')
-        #options.add_argument('user-agent=random_user_agent')
+
+        options.add_argument('user-agent=random_user_agent')
 
         options.add_argument("--disable-infobars")
         options.add_argument("start-maximized")
@@ -31,11 +31,9 @@ class Page:
         
         # Fill login
         ActionChains(self.driver).send_keys(username).perform()
-        print("Ted jsem napsal heslo")
         sleep(3)
 
         ActionChains(self.driver).send_keys(Keys.TAB).perform()
-        print("Uz jsem zmacknul TAB")
 
         # Fill password
         ActionChains(self.driver).send_keys(password).perform()
@@ -57,7 +55,7 @@ class Page:
             sleep(10)
             self.driver.execute_script("window.scrollTo(0, 1000)")
         except:
-            print("Nepodarilo se kliknout na pate video")
+            print("Nepodarilo se najit pozadovany element")
 
         sleep(20)
         self.driver.quit()

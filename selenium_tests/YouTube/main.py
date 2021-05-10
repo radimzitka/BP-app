@@ -3,14 +3,14 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 import json
 
-# Po spusteni skriptu nacte FB stranku, prihlasi se, sjede dolu a nacte pocet lajku u prvniho prispevku
-# Prvni prispevek najde tak, ze vyhleda span tridu 'pcp91wgn'
+# Prihlasi se do uctu Google, prejde na YT, nacte 5. video a diva se na nej 20 sekund
+# Pak se uspi na 30s a pusti novy test - 50x dokola
 
 class Page:
     def __init__(self, username, password):
         options = webdriver.ChromeOptions()
         options.add_argument('--window-size=1920,1080')
-        #options.add_argument('--headless')
+
         options.add_argument('user-agent=false_user_agent')
         
         options.add_argument('accept-languagea=ahoj')
@@ -42,14 +42,7 @@ class Page:
         self.driver.execute_script("window.scrollTo(0, 1000)") 
         sleep(3)
         
-        # Page source code
-        # print(self.driver.page_source, "\n\n")
-
-        spans = self.driver.find_elements_by_xpath("//span[@class='pcp91wgn']")
-        # self.driver.find_elements_by_class_name("pcp91wgn")
-        
         try:
-            print("Prvni prispevek ma ", spans[0].text)
             sleep(4)
             spans[0].click()
         except:

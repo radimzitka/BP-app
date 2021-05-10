@@ -10,7 +10,6 @@ class Page:
     def __init__(self, username, password):
         options = webdriver.ChromeOptions()
         options.add_argument('--window-size=1920,1080')
-        #options.add_argument('--headless')
         options.add_argument('user-agent=false_user_agent')
         
         options.add_argument('accept-language=ahoj')
@@ -41,12 +40,8 @@ class Page:
         sleep(3)
         self.driver.execute_script("window.scrollTo(0, 1000)") 
         sleep(3)
-        
-        # Page source code
-        # print(self.driver.page_source, "\n\n")
 
         spans = self.driver.find_elements_by_xpath("//span[@class='pcp91wgn']")
-        # self.driver.find_elements_by_class_name("pcp91wgn")
         
         try:
             print("Prvni prispevek ma ", spans[0].text)

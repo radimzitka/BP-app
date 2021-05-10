@@ -5,14 +5,10 @@ from time import sleep
 import json
 import re
 
-# Prihlasi se do uctu Google, prejde na YT, nacte 5. video a diva se na nej 20 sekund
-# Pak se uspi na 30s a pusti novy test - 50x dokola
-
 class Page:
     def __init__(self, username, password):
         options = webdriver.ChromeOptions()
         options.add_argument('--window-size=1920,1080')
-        #options.add_argument('--headless')
         #options.add_argument('user-agent=random_user_agent')
 
         options.add_argument("--disable-infobars")
@@ -44,13 +40,6 @@ class Page:
         ActionChains(self.driver).send_keys(Keys.ENTER).perform()
 
         sleep(3)
-        #self.driver.execute_script("window.scrollTo(0, 1000)")
-        #sleep(5) 
-        #self.driver.execute_script("window.scrollTo(0, 0)") 
-        #sleep(5)
-
-        # Page source code
-        # print(self.driver.page_source, "\n\n")
         try:
             buttons = self.driver.find_elements_by_tag_name("button")
             i = 0

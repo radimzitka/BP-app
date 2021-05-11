@@ -26,7 +26,7 @@ Je vyžadován balík `python3-selenium`. Pokud ho nemáte nainstalovaný, nains
 sudo apt install python3-selenium
 ```
 
-Jednotlivé testy mohou být upravovány přímo v kódu a záleží na uživateli, který test chce zrovna spustit.
+Jednotlivé vlastnosti testu mohou být upravovány přímo v kódu a záleží na uživateli, který test požaduje provést - seznam testů, které byly provedeny, jsou popsány v sekci 6.2 v souboru [text.pdf][text].
 
 ---
 

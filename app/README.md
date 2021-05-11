@@ -82,3 +82,7 @@ Soubor | Popis
 Uživatel by měl měnit pouze soubor `config.js`, který slouží pro nastavení časových intervalů, a soubor `users.json`, který importuje do databáze, popř. soubor `/firewall/config.js`, ve kterém lze změnit tabulku s povoleným počtem opakování (funkce `checkIdenticalApproach()` na řádku 211). 
 
 
+[selenium]: <https://github.com/radimzitka/BP-app/tree/main/selenium_tests/Socnet-final>
+
+Aplikační firewall je možné vyzkoušet Python skripty ve složce [`/selenium_tests/socnet-final/][selenium] nebo ručně (poněkud složitější, je třeba být "rychlý").
+

@@ -4,7 +4,7 @@
 
 ## _Analýza aplikačních firewallů sociálních sítí_
 
-Tento README slouží jako průvodce ke zdrojovým kódů bakalářské práce. Je doporučeno přečíst si minimálně Úvod v souboru `text.pdf`.
+Tento README slouží jako průvodce ke zdrojovým kódů bakalářské práce. Je doporučeno přečíst si minimálně Úvod v souboru [`text.pdf`][text-file].
 
 Hlavní cíl práce je detekce botů, kteří navštěvují webovou stránku za účelem webscrapingu. Jsou navrhnuty a implementovány ochrany detekující automatické boty. Architektura ochran vychází z analýzy aplikačních firewallů reálných sociálních sítí a jejím cílem je vylepšit stávající ochrany proti automatickým botům.
 

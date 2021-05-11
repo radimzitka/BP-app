@@ -43,9 +43,9 @@ Hlavní cíl práce je detekce botů, kteří navštěvují webovou stránku za 
    
 ## Jednotlivé části práce
 
-- `/app`  | [README][app] |  Zdrojové soubory simulované sociální sítě Socnet (Node.js)
-- `/selenium_tests` | [README][selenium] | Zdrojové soubory pro analýzu firewallů reálných sociálních sítí pomocí Selenia (Python)
-- `/text` Zdrojové soubory pro tvorbu textu bakalářské práce (pro překlad použijte [Makefile][text]), uložen v **jiném repozitáři!**
+- [`/app`][app]  | [README][app] |  Zdrojové soubory simulované sociální sítě Socnet (Node.js)
+- [`/selenium_tests`][selenium] | [README][selenium] | Zdrojové soubory pro analýzu firewallů reálných sociálních sítí pomocí Selenia (Python)
+- [`/text`][text] Zdrojové soubory pro tvorbu textu bakalářské práce (pro překlad použijte [Makefile][text]), uložen v **jiném repozitáři! [zde][text]**
 - `text.pdf` Text práce -- zde je popsána veškerá logika implementovaných funkcí aplikačního firewallu
 
 Každá složka má svůj README, kde je popsáno, k čemu soubory slouží, a jak je lze spustit.

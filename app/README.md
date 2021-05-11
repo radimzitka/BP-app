@@ -63,7 +63,7 @@ Aplikace běží ve výchozím stavu na portu 8080. Sociální síť Socnet tedy
 http://localhost:8080/
 ```
 
-## Struktura souborů se složce `/app`
+## Struktura souborů ve složce `/app`
 
 Soubor | Popis
 --- | --- 

@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "607718ec6a5f38c89e030614"
+  },
+  "password": "zitka",
+  "username": "radim",
+  "lastLogin": {
+    "$date": "2021-05-09T16:29:41.922Z"
+  },
+  "logins": 209,
+  "blockReason": "TooManyLogins",
+  "nearestLogin": {
+    "$date": "2021-05-01T10:18:47.902Z"
+  }
+},{
+  "_id": {
+    "$oid": "60771a646a5f38c89e030615"
+  },
+  "username": "jan",
+  "password": "svabik",
+  "lastLogin": {
+    "$date": "2021-04-14T16:38:17.661Z"
+  },
+  "logins": 1
+},{
+  "_id": {
+    "$oid": "608018aa459f306f238dcd9f"
+  },
+  "password": "user",
+  "username": "user",
+  "lastLogin": {
+    "$date": "2021-05-09T16:53:02.604Z"
+  },
+  "logins": 107,
+  "blockReason": "TooManyLogins",
+  "nearestLogin": {
+    "$date": "2021-05-09T16:53:17.615Z"
+  }
+}]

@@ -40,12 +40,16 @@ Hlavní cíl práce je detekce botů, kteří navštěvují webovou stránku za 
    [app]: <https://github.com/radimzitka/BP-app/blob/main/app/README.md>
    [selenium]: <https://github.com/radimzitka/BP-app/blob/main/selenium_tests/README.md>
    [text]: <https://github.com/radimzitka/BP-Documents/blob/master/Makefile>
+
+   [app-folder]: <https://github.com/radimzitka/BP-app/blob/main/app/>
+   [selenium-folder]: <https://github.com/radimzitka/BP-app/blob/main/selenium_tests/>
+   [text-folder]: <https://github.com/radimzitka/BP-Documents/>
    
 ## Jednotlivé části práce
 
-- [`/app`][app]  | [README][app] |  Zdrojové soubory simulované sociální sítě Socnet (Node.js)
-- [`/selenium_tests`][selenium] | [README][selenium] | Zdrojové soubory pro analýzu firewallů reálných sociálních sítí pomocí Selenia (Python)
-- [`/text`][text] Zdrojové soubory pro tvorbu textu bakalářské práce (pro překlad použijte [Makefile][text]), uložen v **jiném repozitáři! [zde][text]**
+- [`/app`][app-folder]  | [README][app] |  Zdrojové soubory simulované sociální sítě Socnet (Node.js)
+- [`/selenium_tests`][selenium-folder] | [README][selenium] | Zdrojové soubory pro analýzu firewallů reálných sociálních sítí pomocí Selenia (Python)
+- [`/text`][text-folder] Zdrojové soubory pro tvorbu textu bakalářské práce (pro překlad použijte [Makefile][text]), uložen v **jiném repozitáři [zde][text]!**
 - `text.pdf` Text práce -- zde je popsána veškerá logika implementovaných funkcí aplikačního firewallu
 
 Každá složka má svůj README, kde je popsáno, k čemu soubory slouží, a jak je lze spustit.

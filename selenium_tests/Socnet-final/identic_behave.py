@@ -3,53 +3,65 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 import json
 
-# Po spusteni skriptu nacte FB stranku, prihlasi se, sjede dolu a nacte pocet lajku u prvniho prispevku
-# Prvni prispevek najde tak, ze vyhleda span tridu 'pcp91wgn'
-
 class Page:
     def __init__(self, username, password):
         options = webdriver.ChromeOptions()
         options.add_argument('--window-size=1920,1080')
 
         self.driver = webdriver.Chrome('./drivers/chromedriver', options=options)
-        sleep(4)
         self.driver.get("http://localhost:8080/")
-        
-        # Fill login
-        self.search_login_form = self.driver.find_element_by_name("username")
-        self.search_login_form.send_keys(username)
-        sleep(1)
 
-        # Fill password
-        self.search_pass_form = self.driver.find_element_by_name("password")
-        self.search_pass_form.send_keys(password)
-        sleep(1)
+        i = 0
+        while(True):
+            # Fill login
+            self.search_login_form = self.driver.find_element_by_name("username")
+            self.search_login_form.send_keys(username)
+            sleep(1)
 
-        # Hit enter
-        self.search_pass_form.send_keys(Keys.RETURN)
-
-        sleep(1)
-        self.driver.find_element_by_id("link_like1").click()    
-        sleep(1)
-        self.driver.execute_script("window.scrollTo(0, 400)") 
-        sleep(1)
-        self.driver.find_element_by_id("link_comments2").click()
-        sleep(1)
-        self.driver.execute_script("window.scrollTo(0, -400)")
-        sleep(1)
-        self.driver.find_element_by_id("logout").click()
+            # Fill password
+            self.search_pass_form = self.driver.find_element_by_name("password")
+            self.search_pass_form.send_keys(password)
+            sleep(1)
             
-        sleep(5)
-        self.driver.quit()
+            # Hit enter
+            self.search_pass_form.send_keys(Keys.RETURN)
+            try:
+                if(i % 2 == 0): # 5 actions
+                    sleep(1)
+                    self.driver.find_element_by_id("link_like1").click()    
+                    sleep(1)
+                    self.driver.find_element_by_id("link_like1").click()    
+                    sleep(1)
+                    self.driver.execute_script("window.scrollTo(0, 400)") 
+                    sleep(1)
+                    self.driver.find_element_by_id("link_comments2").click()
+                    sleep(1)
+                    self.driver.execute_script("window.scrollTo(0, -400)")
+                    sleep(1)
+                    self.driver.find_element_by_id("logout").click()
+
+                else: # 4 actions
+                    sleep(1)
+                    self.driver.find_element_by_id("link_like2").click()    
+                    sleep(1)
+                    self.driver.find_element_by_id("link_comments2").click()
+                    sleep(1)
+                    self.driver.find_element_by_id("logout").click()
+                sleep(2)
+                i += 1
+                print("Prihlaseni cislo: ", i)
+            except:
+                print("Nepodarilo se mi najit prvek, na ktery mam kliknout.")
+                sleep(5)
+                self.driver.quit()
+                return
 
 
 # Config data - login and password
 with open('./configs/credentials.json') as f:
     credentials = json.load(f)
 
-for i in range(50):
-    page = Page(credentials['username'], credentials['password'])
-    sleep(5)
+page = Page(credentials['username'], credentials['password'])
 
 
 

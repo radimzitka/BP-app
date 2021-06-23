@@ -11,18 +11,18 @@ module.exports = {
     },
 
     // first test 
-    badPasswordAttemptsInterval: 30,
+    badPasswordAttemptsInterval: 60, // def = 30
     badPasswordAttempts: 3,
     // first test blocation range <15, 35>
-    IPAddressBannedMin: 15,
+    IPAddressBannedMin: 30, // def = 15
     IPAddressBannedRange: 20,
 
 
     // second test
-    loginInterval: 10,
+    loginInterval: 30, // def = 10
     maxLoginsInInterval: 5,
     // second test blocation range <10, 30>
-    loginIntervalBannedMin: 10,
+    loginIntervalBannedMin: 30, // def 10
     loginIntervalBannedRange: 20,
 
 

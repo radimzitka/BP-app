@@ -14,24 +14,23 @@ class Page:
         options.add_argument('user-agent=false_user_agent')
 
         self.driver = webdriver.Chrome('./drivers/chromedriver', options=options)
-        sleep(4)
         self.driver.get("http://localhost:8080/")
         
         # Fill login
         self.search_login_form = self.driver.find_element_by_name("username")
         self.search_login_form.send_keys(username)
-        sleep(1)
+        sleep(2)
 
         # Fill password
         self.search_pass_form = self.driver.find_element_by_name("password")
         self.search_pass_form.send_keys(password)
-        sleep(1)
+        sleep(2)
 
         # Hit enter
         self.search_pass_form.send_keys(Keys.RETURN)
 
 
-        sleep(10)
+        sleep(30)
         self.driver.quit()
 
 
